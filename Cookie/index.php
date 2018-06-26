@@ -13,7 +13,8 @@
 	//$_SESSION['count'];
 	if(!isset($_SESSION['count']))
 	{
-		echo "null";
+		// echo "null";
+		echo "";
 	}
 	else
 	{
@@ -23,7 +24,7 @@
 		{
 			echo "Invalid username or password\n";
 		}
-		else ($_SESSION['count']=='b')
+		else if ($_SESSION['count']=='b')
 		{
 			echo "You have been logged out\n";
 			session_destroy(); //destroy entire session

@@ -15,7 +15,7 @@
 	{
 		// echo "null";
 		// echo "";
-		scho "";
+		echo "";
 	}
 	else
 	{

@@ -14,7 +14,8 @@
 	if(!isset($_SESSION['count']))
 	{
 		// echo "null";
-		echo "";
+		// echo "";
+		scho "";
 	}
 	else
 	{

@@ -9,25 +9,25 @@
 			text-align: center;
 		}
 
-		#CharTable
+		#CharTable, #WordTable
 		{
 			font-family: Calibri;
 			border-collapse: collapse;
 
 		}
 
-		#CharTable td, #CharTable th
+		#CharTable td, #CharTable th, #WordTable td, #WordTable th
 		{
 			border: 0px;
 			padding: 5px 200px;
 		}
 
-		#CharTable tr:nth-child(even)
+		#CharTable tr:nth-child(even), #WordTable tr:nth-child(even)
 		{
 			background-color: #f2f2f2;
 		}	
 
-		#CharTable tr:hover
+		#CharTable tr:hover, #WordTable tr:hover
 		{
 			background-color: #ddd;
 		}
@@ -35,6 +35,12 @@
 		#CharTable th
 		{
 			background-color: #4caf50;
+			color: white;
+		}
+
+		#WordTable th
+		{
+			background-color: #ff9933;
 			color: white;
 		}
 
@@ -65,7 +71,7 @@
 <body>
 	<form name="ResultPage" method="post" action="index.php">
 		<br><br>
-		<img src="CFC.png" id="TopImg" width="800" height="120"><br><br>
+		<img src="CFC.png" id="TopImg" width="800" height="120"><br><br><br><br>
 
 		<table id="CharTable" align="center">
 			<tr>
@@ -156,8 +162,35 @@
 ?>
 	
 		</table>
-		<br><br>
-		<button type="submit" id="BackBtn">Input Another String</button>
+		<br><br><br>
+		<button type="submit" id="BackBtn">Input Another String</button><br><br><br><br><br><br><br><br>
+
+		<table id="WordTable" align="center">
+            <tr>
+                <th>Word</th>
+                <th>Count</th>
+            </tr>
+<?php
+	$input=$_POST['text'];
+	$length=strlen($input);
+
+	$arr=array_count_values(str_word_count($input, 1));
+	ksort($arr);
+	foreach($arr as $word=>$count)
+	{
+		echo "<tr>";
+		echo "<td>";
+		echo $word;
+		echo "</td>";
+		echo "<td>";
+		echo $count;
+		echo "</td>";
+		echo "</tr>"; 
+	}
+?>
+        </table>
+        <br><br><br>
+		<button type="submit" id="BackBtn">Input Another String</button><br><br><br>
 	</form>
 </body>
 </html>

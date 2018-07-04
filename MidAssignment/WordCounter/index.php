@@ -32,7 +32,6 @@
 			font-size: 16px;
 
 			transition-duration: 0.4s;
-
 		}
 
 		#CountBtn:hover
@@ -55,7 +54,6 @@
 			font-size: 16px;
 
 			transition-duration: 0.4s;
-
 		}
 
 		#ClearBtn:hover
@@ -74,8 +72,8 @@
 		<!--<p id="TopLabel">Character Frequency Counter</p><hr><br>-->
 		<img src="CFC.png" id="TopImg" width="800" height="120">
 		<p id="UpLabel">Insert your string into the following text area to get the count per character</p>
-		<textarea rows="18" cols="100" value="" autofocus></textarea><br>
-		<input type="submit" value="Count" id="CountBtn"> <button type="reset" id="ClearBtn" onclick="TextClear()">Clear</button>
+		<textarea rows="18" cols="100" name="text" value="" autofocus></textarea><br>
+		<input type="submit" value="Count" id="CountBtn"> <button type="reset" id="ClearBtn">Clear</button>
 	</form>
 </body>
 </html>

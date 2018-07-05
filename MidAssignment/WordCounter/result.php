@@ -123,7 +123,7 @@
 		
 		for($i=0;$i<128;$i++)
 		{
-			if($i==10)
+			if($i==10 && $enter>0)
 			{
 				echo "<tr>";
 				echo "<td>";
@@ -134,7 +134,7 @@
 				echo "</td>";
 				echo "</tr>";	
 			}
-			else if($i==32)
+			else if($i==32 && $arr[$i]>0)
 			{
 				echo "<tr>";
 				echo "<td>";

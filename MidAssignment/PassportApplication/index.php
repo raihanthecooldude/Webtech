@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Passport 1</title>
+	<title>Passport Page 1</title>
 
 	<style type="text/css">
 		
@@ -29,29 +29,62 @@
 		hr.x
 		{
 			border: 0px;
-			width: 90%;
+			width: 85%;
 			height: 3px;
 			color: #bfbfbf;
 			background-color: #bfbfbf;
 		}
 
+		*
+		{
+			box-sizing: border-box;
+		}
+
 		.Split
 		{
 			width: 45%;
-			position: fixed;
+			/*position: relative;*/
 			z-index: 1;
-			overflow-x: hidden;
+			border: 1px solid red;
 			border: 0;
+		}
+
+		.Main
+		{
+			/*height: 135%;*/
+			width: 84%;
+			/*border-top: 1px solid #bfbfbf;
+			border-bottom: 1px solid #bfbfbf;
+			border-left: 1px solid #bfbfbf;
+			border-right: 1px solid #bfbfbf;*/
+			/*position: absolute;*/
+			left: 8%;
+			content: "";
+			display: table;
+			clear: both;
+		}
+
+		fieldset
+		{
+			/*width: 86%;*/
+			/*left: 10%;*/
+
 		}
 
 		.Left
 		{
+			float: left;
+			overflow: hidden;
 			left: 5%;
+			/*border: 1px solid red;*/
 		}
 
 		.Right
 		{
+			float: right;
+			overflow: hidden;
 			right: 5%;
+			/*border: 1px solid red;*/
 		}
 
 		.LeftTable, .RightTable
@@ -68,7 +101,7 @@
 		select
 		{
 			width: 270px;
-			height: 25px;
+			height: 30px;
 			border-radius: 4px;
 
 
@@ -92,28 +125,40 @@
 
 		.LeftTable td, .RightTable td
 		{
-			padding-top: 5px;
-			padding-bottom: 5px;
+			padding-top: 8px;
+			padding-bottom: 8px;
 			padding-right: 10px;
 		}
 
-		.Main
+		.Top
 		{
-			overflow: auto;
+			position: relative;
+			width: 50%;
+			left:8%;
+			border: 0;
+		}
+
+		.Save
+		{
+			float: right;
+			padding: 10px 24px;
+			font-family: Calibri;
 		}
 
 	</style>
 </head>
 <body>
-
 	<form name="stage1" method="post" action="stage2.php">
-		<h3>PASSPORT APPLICATION - STAGE 1</h3>
-		<p id="RedMark">	Before filling up the online application form read the <a href="#">guidelines</a> carefully.</p>
-		<p id="Normal">Fields marked with <i><b><font color="red">(*)</font></b></i> are mandatory.</p>
-		<hr class="x"><br><br>
-
+		<div class="Top">
+			<h3> PASSPORT APPLICATION - STAGE 1</h3>
+			<p id="RedMark"> Before filling up the online application form read the <a href="#">guidelines</a> carefully.</p>
+			<p id="Normal"> Fields marked with <i><b><font color="red">(*)</font></b></i> are mandatory.</p>
+		</div>
+		<br>
+		<hr class="x">
+		<fieldset>
 		<div class="Main">
-
+			<br><br>
 			<div class="Split Left">
 				<table class="LeftTable" align="center">
 					<tr class="SubDiv">
@@ -125,7 +170,7 @@
 					<tr>
 						<td>Applying in:<font color="red">*</font></td>
 						<td>
-							<select>
+							<select name="Apply">
   								<option value="BANGLADESH">BANGLADESH</option>
  								<option value="FRANCE">FRANCE</option>
   								<option value="ITALY">ITALY</option>
@@ -140,7 +185,7 @@
 					<tr>
 						<td>Passport Type:<font color="red">*</font></td>
 						<td>
-							<select>
+							<select name="PassType">
   								<option value="A">-SELECT-</option>
  								<option value="ORDINARY">ORDINARY</option>
   								<option value="DIPLOMATICY">DIPLOMATIC</option>
@@ -169,7 +214,7 @@
 						<td><input type="text" class="TextArea" name="ApplicantName" value=""></td>
 					</tr>
 					<tr>
-						<td>First Part (Given<br>Name):</td>
+						<td>First Part<br>(Given Name):</td>
 						<td><input type="text" class="TextArea" name="FirstName" value=""></td>
 					</tr>
 					<tr>
@@ -183,28 +228,31 @@
 						<td colspan="2">Guardian <input type="checkbox" name="adapted" value="adapted"> <font color="red"><i>"Tick"</i></font> only if Applicant is legally adapted</td>
 					</tr>
 					<tr>
+						<td> </td>
+					</tr>
+					<tr>
 						<td>Father's Name:<font color="red">*</font></td>
 						<td><input type="text" class="TextArea" name="FatherName" value=""></td>
 					</tr>
 					<tr>
 						<td>Father's<br>Nationality:<font color="red">*</font></td>
 						<td>
-							<select>
-  								<option value="FBANGLADESHI">BANGLADESHI</option>
- 								<option value="FFRENCH">FRENCH</option>
-  								<option value="FITALIAN">ITALIAN</option>
-  								<option value="FCANADIAN">CANADIAN</option>
-  								<option value="FSPANISH">SPANISH</option>
+							<select name="FN">
+  								<option value="BANGLADESHI">BANGLADESHI</option>
+ 								<option value="FRENCH">FRENCH</option>
+  								<option value="ITALIAN">ITALIAN</option>
+  								<option value="CANADIAN">CANADIAN</option>
+  								<option value="SPANISH">SPANISH</option>
 							</select>
 						</td>
 					</tr>
 					<tr>
 						<td>Father's<br>Profession:<font color="red">*</font></td>
 						<td>
-							<select>
+							<select name="FPro">
   								<option value="F">-SELECT-</option>
- 								<option value="FCSENGINEER">CS ENGINEER</option>
-  								<option value="FBEKAR">BEKAR</option>
+ 								<option value="CSENGINEER">CS ENGINEER</option>
+  								<option value="BEKAR">BEKAR</option>
 							</select>
 						</td>
 					</tr>
@@ -215,23 +263,23 @@
 					<tr>
 						<td>Mother's<br>Nationality:<font color="red">*</font></td>
 						<td>
-							<select>
-  								<option value="MBANGLADESHI">BANGLADESHI</option>
- 								<option value="MFRENCH">FRENCH</option>
-  								<option value="MITALIAN">ITALIAN</option>
-  								<option value="MCANADIAN">CANADIAN</option>
-  								<option value="MSPANISH">SPANISH</option>
+							<select name="MN">
+  								<option value="BANGLADESHI">BANGLADESHI</option>
+ 								<option value="FRENCH">FRENCH</option>
+  								<option value="ITALIAN">ITALIAN</option>
+  								<option value="CANADIAN">CANADIAN</option>
+  								<option value="SPANISH">SPANISH</option>
 							</select>
 						</td>
 					</tr>
 					<tr>
 						<td>Mother's<br>Profession:<font color="red">*</font></td>
 						<td>
-							<select>
+							<select name="MPro">
   								<option value="M">-SELECT-</option>
- 								<option value="MHOUSEWIFE">HOUSEWIFE</option>
- 								<option value="MCSENGINEER">CS ENGINEER</option>
-  								<option value="MBEKAR">BEKAR</option>
+ 								<option value="HOUSEWIFE">HOUSEWIFE</option>
+ 								<option value="CSENGINEER">CS ENGINEER</option>
+  								<option value="BEKAR">BEKAR</option>
 							</select>
 						</td>
 					</tr>
@@ -242,29 +290,29 @@
 					<tr>
 						<td>Spouse's<br>Nationality:<font color="red">*</font></td>
 						<td>
-							<select>
-  								<option value="SBANGLADESHI">BANGLADESHI</option>
- 								<option value="SFRENCH">FRENCH</option>
-  								<option value="SITALIAN">ITALIAN</option>
-  								<option value="SCANADIAN">CANADIAN</option>
-  								<option value="SSPANISH">SPANISH</option>
+							<select name="SN">
+  								<option value="BANGLADESHI">BANGLADESHI</option>
+ 								<option value="FRENCH">FRENCH</option>
+  								<option value="ITALIAN">ITALIAN</option>
+  								<option value="CANADIAN">CANADIAN</option>
+  								<option value="SPANISH">SPANISH</option>
 							</select>
 						</td>
 					</tr>
 					<tr>
 						<td>Spouse's<br>Profession:<font color="red">*</font></td>
 						<td>
-							<select>
+							<select name="SPro">
   								<option value="S">-SELECT-</option>
- 								<option value="CSENGINEER">CS ENGINEER</option>
-  								<option value="SBEKAR">BEKAR</option>
+ 								<option value="SENGINEER">CS ENGINEER</option>
+  								<option value="BEKAR">BEKAR</option>
 							</select>
 						</td>
 					</tr>
 					<tr>
 						<td>Marital Status:<font color="red">*</font></td>
 						<td>
-							<select>
+							<select name="MS">
   								<option value="S">-SELECT-</option>
   								<option value="single">SINGLE</option>
   								<option value="married">MARRIED</option>
@@ -276,7 +324,7 @@
 					<tr>
 						<td>Applicant's<br>Profession:<font color="red">*</font></td>
 						<td>
-							<select>
+							<select name="APro">
   								<option value="A">-SELECT-</option>
   								<option value="BEKAR">BEKAR</option>
 							</select>
@@ -285,7 +333,7 @@
 					<tr>
 						<td>Country of<br>Birth:<font color="red">*</font></td>
 						<td>
-							<select>
+							<select name="Country">
   								<option value="BANGLADESH">BANGLADESH</option>
  								<option value="FRANCE">FRANCE</option>
   								<option value="ITALY">ITALY</option>
@@ -297,24 +345,223 @@
 					<tr>
 						<td>Birth District:<font color="red">*</font></td>
 						<td>
-							<select>
-  								<option value="bd">-SELECT-</option>
+							<select name="BDis">
+  								<option value="bdis">-SELECT-</option>
+  								<option value="DHAKA">DHAKA</option>
+  								<option value="NEWFOUNDLAND">NEWFOUNDLAND</option>
+  								<option value="PARIS">PARIS</option>
+  								<option value="MADRID">MADRID</option>
 							</select>
 						</td>
 					</tr>
-
+					<tr>
+						<td>Date of Birth:<font color="red">*</font></td>
+						<td><input type="text" class="TextArea" name="DOB" value=""></td>
+					</tr>
 				</table>
 			</div>
 
 
 			<div class="Split Right">
 				<table class="RightTable" align="center">
-				
+					<tr>
+						<td>Gender:<font color="red">*</font></td>
+						<td>
+							<input type="radio" name="Gender" value="Male">Male<br>
+							<input type="radio" name="Gender" value="Female">Female<br>
+							<input type="radio" name="Gender" value="Others">Others
+						</td>
+					</tr>
+					<tr>
+						<td>Birth ID No:<font color="red">*</font></td>
+						<td><input type="text" class="TextArea" name="BID" value=""></td>
+					</tr>
+					<tr>
+						<td>National ID No:</td>
+						<td><input type="text" class="TextArea" name="NID" value=""></td>
+					</tr>
+					<tr>
+						<td>Tax ID No:</td>
+						<td><input type="text" class="TextArea" name="TID" value=""></td>
+					</tr>
+					<tr>
+						<td>Height:<font color="red">*</font></td>
+						<td><input type="text" style="border: 1px solid #cccccc; width: 50px; height: 25px; border-radius: 4px;" name="Hcm" value=""> &nbsp&nbsp cm &nbsp&nbsp <input type="text" style="border: 1px solid #cccccc; width: 50px; height: 25px; border-radius: 4px;" name="Hinch" value=""> &nbsp&nbsp inch</td>
+					</tr>
+					<tr>
+						<td>Religion:<font color="red">*</font></td>
+						<td>
+							<select name="AReligion">
+  								<option value="bd">-SELECT-</option>
+  								<option value="ISLAM">ISLAM</option>
+  								<option value="HINDUISM">HINDUISM</option>
+  								<option value="CHRISTIANITY">CHRISTIANITY</option>
+  								<option value="BUDDHISM">BUDDHISM</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Email:<font color="red">*</font></td>
+						<td><input type="text" class="TextArea" name="Email" value=""></td>
+					</tr>
+					<tr>
+						<td> </td>
+					</tr>
+					<tr class="SubDiv">
+						<td colspan="2">Citizenship Information</td>
+					</tr>
+					<tr>
+						<td> </td>
+					</tr>
+					<tr>
+						<td>Nationality:<font color="red">*</font></td>
+						<td>
+							<select disabled="true" name="AN">
+  								<option value="abd" selected>BANGLADESHI</option>
+  							</select>
+  							<input type="hidden" name="AN" value="abd">
+						</td>
+					</tr>
+					<tr>
+						<td>Citizenship Status:<font color="red">*</font></td>
+						<td>
+							<select name="CStatus">
+  								<option value="BIRTH">BIRTH</option>
+  								<option value="PARENTAGE">PARENTAGE</option>
+  								<option value="MIGRATION">MIGRATION</option>
+  								<option value="NATURALIZATION">NATURALIZATION</option>
+  								<option value="OTHERS">OTHERS</option>
+  							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Dual Citizenship:<font color="red">*</font></td>
+						<td>
+							<input type="radio" name="dc" value="yes">Yes<br>
+							<input type="radio" name="dc" value="no">No
+						</td>
+					</tr>
+					<tr>
+						<td> </td>
+					</tr>
+					<tr class="SubDiv">
+						<td colspan="2">Present Address</td>
+					</tr>
+					<tr>
+						<td> </td>
+					</tr>
+					<tr>
+						<td>Village/House:</td>
+						<td><input type="text" class="TextArea" name="PreHouse" value=""></td>
+					</tr>
+					<tr>
+						<td>Road/Block/Sector:</td>
+						<td><input type="text" class="TextArea" name="PreRoad" value=""></td>
+					</tr>
+					<tr>
+						<td>District:<font color="red">*</font></td>
+						<td>
+							<select name="PreDis">
+								<option value="">-SELECT-</option>
+  								<option value="DHAKA">DHAKA</option>
+  								<option value="CHITTAGONG">CHITTAGONG</option>
+  								<option value="RAJSHAHI">RAJSHAHI</option>
+  								<option value="SYLHET">SYLHET</option>
+  								<option value="KHULNA">KHULNA</option>
+  							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Police Station:<font color="red">*</font></td>
+						<td>
+							<select name="PrePS">
+								<option value="">-SELECT-</option>
+  								<option value="DHAKA">DHAKA</option>
+  								<option value="CHITTAGONG">CHITTAGONG</option>
+  								<option value="RAJSHAHI">RAJSHAHI</option>
+  								<option value="SYLHET">SYLHET</option>
+  								<option value="KHULNA">KHULNA</option>
+  							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Post Office:<font color="red">*</font></td>
+						<td>
+							<select name="PrePO">
+								<option value="">-SELECT-</option>
+  								<option value="DHAKA">DHAKA</option>
+  								<option value="CHITTAGONG">CHITTAGONG</option>
+  								<option value="RAJSHAHI">RAJSHAHI</option>
+  								<option value="SYLHET">SYLHET</option>
+  								<option value="KHULNA">KHULNA</option>
+  							</select>
+						</td>
+					</tr>
+					<tr>
+						<td> </td>
+					</tr>
+					<tr class="SubDiv">
+						<td colspan="2">Permanent Address</td>
+					</tr>
+					<tr>
+						<td> </td>
+					</tr>
+					<tr>
+						<td colspan="2"><input type="checkbox" name="Per" value="SameAsPre"> Same as above</td>
+					</tr>
+					<tr>
+						<td>Village/House:</td>
+						<td><input type="text" class="TextArea" name="PerHouse" value=""></td>
+					</tr>
+					<tr>
+						<td>Road/Block/Sector:</td>
+						<td><input type="text" class="TextArea" name="PerRoad" value=""></td>
+					</tr>
+					<tr>
+						<td>District:<font color="red">*</font></td>
+						<td>
+							<select name="PerDis">
+								<option value="">-SELECT-</option>
+  								<option value="DHAKA">DHAKA</option>
+  								<option value="CHITTAGONG">CHITTAGONG</option>
+  								<option value="RAJSHAHI">RAJSHAHI</option>
+  								<option value="SYLHET">SYLHET</option>
+  								<option value="KHULNA">KHULNA</option>
+  							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Police Station:<font color="red">*</font></td>
+						<td>
+							<select name="PerPS">
+								<option value="">-SELECT-</option>
+  								<option value="DHAKA">DHAKA</option>
+  								<option value="CHITTAGONG">CHITTAGONG</option>
+  								<option value="RAJSHAHI">RAJSHAHI</option>
+  								<option value="SYLHET">SYLHET</option>
+  								<option value="KHULNA">KHULNA</option>
+  							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Post Office:<font color="red">*</font></td>
+						<td>
+							<select name="PerPO">
+								<option value="">-SELECT-</option>
+  								<option value="DHAKA">DHAKA</option>
+  								<option value="CHITTAGONG">CHITTAGONG</option>
+  								<option value="RAJSHAHI">RAJSHAHI</option>
+  								<option value="SYLHET">SYLHET</option>
+  								<option value="KHULNA">KHULNA</option>
+  							</select>
+						</td>
+					</tr>
 				</table>
+				<br><br>
+				<button class="Save">SAVE & NEXT</button>
 			</div>
-
 		</div>
+		</fieldset>
 	</form>
-
 </body>
 </html>

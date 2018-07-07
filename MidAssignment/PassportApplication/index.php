@@ -110,7 +110,7 @@
 			font-family: Calibri;
 		}
 
-		.TextArea
+		.TextArea, .Date
 		{
 			border: 1px solid #cccccc;
 			width: 270px;
@@ -145,6 +145,12 @@
 			font-family: Calibri;
 		}
 
+		input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button, input[type=date]::-webkit-inner-spin-button, input[type=date]::-webkit-outer-spin-button
+		{ 
+  			-webkit-appearance: none; 
+  			margin: 0; 
+		}
+
 	</style>
 </head>
 <body>
@@ -170,7 +176,7 @@
 					<tr>
 						<td>Applying in:<font color="red">*</font></td>
 						<td>
-							<select name="Apply">
+							<select name="Apply" required>
   								<option value="BANGLADESH">BANGLADESH</option>
  								<option value="FRANCE">FRANCE</option>
   								<option value="ITALY">ITALY</option>
@@ -185,8 +191,8 @@
 					<tr>
 						<td>Passport Type:<font color="red">*</font></td>
 						<td>
-							<select name="PassType">
-  								<option value="A">-SELECT-</option>
+							<select name="PassType" required>
+  								<option value="">-SELECT-</option>
  								<option value="ORDINARY">ORDINARY</option>
   								<option value="DIPLOMATICY">DIPLOMATIC</option>
   								<option value="OFFICIAL">OFFICIAL</option>
@@ -196,7 +202,7 @@
 					<tr>
 						<td>Delivery Type:</td>
 						<td>
-							<input type="radio" name="Delivery" value="Regular">Regular<br>
+							<input type="radio" name="Delivery" value="Regular" required>Regular<br>
 							<input type="radio" name="Delivery" value="Express">Express
 						</td>
 					</tr>
@@ -211,15 +217,15 @@
 					</tr>
 					<tr>
 						<td>Name of<br>Applicant:<font color="red">*</font></td>
-						<td><input type="text" class="TextArea" name="ApplicantName" value=""></td>
+						<td><input type="text" class="TextArea" name="ApplicantName" value="" pattern="^([a-zA-Z]+)((' |[ ]|[-])([a-zA-Z]*))*$" oninvalid="this.setCustomValidity('Please Enter your Name using only Characters')" oninput="setCustomValidity('')" required></td>
 					</tr>
 					<tr>
 						<td>First Part<br>(Given Name):</td>
-						<td><input type="text" class="TextArea" name="FirstName" value=""></td>
+						<td><input type="text" class="TextArea" name="FirstName" value="" pattern="^([a-zA-Z]+)((' |[ ]|[-])([a-zA-Z]*))*$" oninvalid="this.setCustomValidity('Please Enter your Name using only Characters')" oninput="setCustomValidity('')" value=""></td>
 					</tr>
 					<tr>
 						<td>Second Part<br>(Surname)<font color="red">*</font></td>
-						<td><input type="text" class="TextArea" name="LastName" value=""></td>
+						<td><input type="text" class="TextArea" name="LastName" pattern="^([a-zA-Z]+)((' |[ ]|[-])([a-zA-Z]*))*$" oninvalid="this.setCustomValidity('Please Enter your Name using only Characters')" oninput="setCustomValidity('')" value="" required></td>
 					</tr>
 					<tr>
 						<td> </td>
@@ -232,12 +238,12 @@
 					</tr>
 					<tr>
 						<td>Father's Name:<font color="red">*</font></td>
-						<td><input type="text" class="TextArea" name="FatherName" value=""></td>
+						<td><input type="text" class="TextArea" name="FatherName" pattern="^([a-zA-Z]+)((' |[ ]|[-])([a-zA-Z]*))*$" oninvalid="this.setCustomValidity('Please Enter your Name using only Characters')" oninput="setCustomValidity('')" value="" required></td>
 					</tr>
 					<tr>
 						<td>Father's<br>Nationality:<font color="red">*</font></td>
 						<td>
-							<select name="FN">
+							<select name="FN" required>
   								<option value="BANGLADESHI">BANGLADESHI</option>
  								<option value="FRENCH">FRENCH</option>
   								<option value="ITALIAN">ITALIAN</option>
@@ -249,8 +255,8 @@
 					<tr>
 						<td>Father's<br>Profession:<font color="red">*</font></td>
 						<td>
-							<select name="FPro">
-  								<option value="F">-SELECT-</option>
+							<select name="FPro" required>
+  								<option value="">-SELECT-</option>
  								<option value="CSENGINEER">CS ENGINEER</option>
   								<option value="BEKAR">BEKAR</option>
 							</select>
@@ -258,12 +264,12 @@
 					</tr>
 					<tr>
 						<td>Mother's Name:<font color="red">*</font></td>
-						<td><input type="text" class="TextArea" name="MotherName" value=""></td>
+						<td><input type="text" class="TextArea" pattern="^([a-zA-Z]+)((' |[ ]|[-])([a-zA-Z]*))*$" oninvalid="this.setCustomValidity('Please Enter your Name using only Characters')" oninput="setCustomValidity('')" name="MotherName" value="" required></td>
 					</tr>
 					<tr>
 						<td>Mother's<br>Nationality:<font color="red">*</font></td>
 						<td>
-							<select name="MN">
+							<select name="MN" required>
   								<option value="BANGLADESHI">BANGLADESHI</option>
  								<option value="FRENCH">FRENCH</option>
   								<option value="ITALIAN">ITALIAN</option>
@@ -275,8 +281,8 @@
 					<tr>
 						<td>Mother's<br>Profession:<font color="red">*</font></td>
 						<td>
-							<select name="MPro">
-  								<option value="M">-SELECT-</option>
+							<select name="MPro" required>
+  								<option value="">-SELECT-</option>
  								<option value="HOUSEWIFE">HOUSEWIFE</option>
  								<option value="CSENGINEER">CS ENGINEER</option>
   								<option value="BEKAR">BEKAR</option>
@@ -284,11 +290,11 @@
 						</td>
 					</tr>
 					<tr>
-						<td>Spouse's Name:<font color="red">*</font></td>
-						<td><input type="text" class="TextArea" name="SpouserName" value=""></td>
+						<td>Spouse's Name:</td>
+						<td><input type="text" class="TextArea" name="SpouserName" pattern="^([a-zA-Z]+)((' |[ ]|[-])([a-zA-Z]*))*$" oninvalid="this.setCustomValidity('Please Enter your Name using only Characters')" oninput="setCustomValidity('')" value=""></td>
 					</tr>
 					<tr>
-						<td>Spouse's<br>Nationality:<font color="red">*</font></td>
+						<td>Spouse's<br>Nationality:</td>
 						<td>
 							<select name="SN">
   								<option value="BANGLADESHI">BANGLADESHI</option>
@@ -300,11 +306,11 @@
 						</td>
 					</tr>
 					<tr>
-						<td>Spouse's<br>Profession:<font color="red">*</font></td>
+						<td>Spouse's<br>Profession:</td>
 						<td>
 							<select name="SPro">
-  								<option value="S">-SELECT-</option>
- 								<option value="SENGINEER">CS ENGINEER</option>
+  								<option value="">-SELECT-</option>
+ 								<option value="CSENGINEER">CS ENGINEER</option>
   								<option value="BEKAR">BEKAR</option>
 							</select>
 						</td>
@@ -312,8 +318,8 @@
 					<tr>
 						<td>Marital Status:<font color="red">*</font></td>
 						<td>
-							<select name="MS">
-  								<option value="S">-SELECT-</option>
+							<select name="MS" required>
+  								<option value="">-SELECT-</option>
   								<option value="single">SINGLE</option>
   								<option value="married">MARRIED</option>
   								<option value="divorced">DIVORCED</option>
@@ -324,8 +330,8 @@
 					<tr>
 						<td>Applicant's<br>Profession:<font color="red">*</font></td>
 						<td>
-							<select name="APro">
-  								<option value="A">-SELECT-</option>
+							<select name="APro" required>
+  								<option value="">-SELECT-</option>
   								<option value="BEKAR">BEKAR</option>
 							</select>
 						</td>
@@ -333,7 +339,7 @@
 					<tr>
 						<td>Country of<br>Birth:<font color="red">*</font></td>
 						<td>
-							<select name="Country">
+							<select name="Country" required>
   								<option value="BANGLADESH">BANGLADESH</option>
  								<option value="FRANCE">FRANCE</option>
   								<option value="ITALY">ITALY</option>
@@ -345,8 +351,8 @@
 					<tr>
 						<td>Birth District:<font color="red">*</font></td>
 						<td>
-							<select name="BDis">
-  								<option value="bdis">-SELECT-</option>
+							<select name="BDis" required>
+  								<option value="">-SELECT-</option>
   								<option value="DHAKA">DHAKA</option>
   								<option value="NEWFOUNDLAND">NEWFOUNDLAND</option>
   								<option value="PARIS">PARIS</option>
@@ -356,7 +362,7 @@
 					</tr>
 					<tr>
 						<td>Date of Birth:<font color="red">*</font></td>
-						<td><input type="text" class="TextArea" name="DOB" value=""></td>
+						<td><input type = "date" class="Date" name = "dateofbirth" min="1918-12-31"  id = "dateofbirthid" required>
 					</tr>
 				</table>
 			</div>
@@ -367,32 +373,32 @@
 					<tr>
 						<td>Gender:<font color="red">*</font></td>
 						<td>
-							<input type="radio" name="Gender" value="Male">Male<br>
+							<input type="radio" name="Gender" value="Male"  required>Male<br>
 							<input type="radio" name="Gender" value="Female">Female<br>
 							<input type="radio" name="Gender" value="Others">Others
 						</td>
 					</tr>
 					<tr>
 						<td>Birth ID No:<font color="red">*</font></td>
-						<td><input type="text" class="TextArea" name="BID" value=""></td>
+						<td><input type="text" class="TextArea" name="BID" value="" pattern="^\d\d\d\d\d$" oninvalid="this.setCustomValidity('Please enter authentic Birth ID No.')" oninput="setCustomValidity('')" required></td>
 					</tr>
 					<tr>
 						<td>National ID No:</td>
-						<td><input type="text" class="TextArea" name="NID" value=""></td>
+						<td><input type="text" class="TextArea" name="NID" value="" pattern="^\d\d\d\d\d$" oninvalid="this.setCustomValidity('Please enter authentic National ID No.')" oninput="setCustomValidity('')"></td>
 					</tr>
 					<tr>
 						<td>Tax ID No:</td>
-						<td><input type="text" class="TextArea" name="TID" value=""></td>
+						<td><input type="text" class="TextArea" name="TID" value="" pattern="^\d\d\d\d\d$" oninvalid="this.setCustomValidity('Please enter authentic Tax ID No.')" oninput="setCustomValidity('')"></td>
 					</tr>
 					<tr>
 						<td>Height:<font color="red">*</font></td>
-						<td><input type="text" style="border: 1px solid #cccccc; width: 50px; height: 25px; border-radius: 4px;" name="Hcm" value=""> &nbsp&nbsp cm &nbsp&nbsp <input type="text" style="border: 1px solid #cccccc; width: 50px; height: 25px; border-radius: 4px;" name="Hinch" value=""> &nbsp&nbsp inch</td>
+						<td><input type="number" style="border: 1px solid #cccccc; width: 50px; height: 25px; border-radius: 4px;" name="Hcm" value="" min="1" required> &nbsp&nbsp cm &nbsp&nbsp <input type="number" style="border: 1px solid #cccccc; width: 50px; height: 25px; border-radius: 4px;" name="Hinch" value="" min="1" required> &nbsp&nbsp inch</td>
 					</tr>
 					<tr>
-						<td>Religion:<font color="red">*</font></td>
+						<td>Religion:<font color="red" required>*</font></td>
 						<td>
 							<select name="AReligion">
-  								<option value="bd">-SELECT-</option>
+  								<option value="">-SELECT-</option>
   								<option value="ISLAM">ISLAM</option>
   								<option value="HINDUISM">HINDUISM</option>
   								<option value="CHRISTIANITY">CHRISTIANITY</option>
@@ -402,7 +408,7 @@
 					</tr>
 					<tr>
 						<td>Email:<font color="red">*</font></td>
-						<td><input type="text" class="TextArea" name="Email" value=""></td>
+						<td><input type="email" class="TextArea" name="Email" value="" required><br>Example: xyz@abc.com</td>
 					</tr>
 					<tr>
 						<td> </td>
@@ -416,7 +422,7 @@
 					<tr>
 						<td>Nationality:<font color="red">*</font></td>
 						<td>
-							<select disabled="true" name="AN">
+							<select disabled="true" name="AN" required>
   								<option value="abd" selected>BANGLADESHI</option>
   							</select>
   							<input type="hidden" name="AN" value="abd">
@@ -425,7 +431,7 @@
 					<tr>
 						<td>Citizenship Status:<font color="red">*</font></td>
 						<td>
-							<select name="CStatus">
+							<select name="CStatus" required>
   								<option value="BIRTH">BIRTH</option>
   								<option value="PARENTAGE">PARENTAGE</option>
   								<option value="MIGRATION">MIGRATION</option>
@@ -437,7 +443,7 @@
 					<tr>
 						<td>Dual Citizenship:<font color="red">*</font></td>
 						<td>
-							<input type="radio" name="dc" value="yes">Yes<br>
+							<input type="radio" name="dc" value="yes"  required>Yes<br>
 							<input type="radio" name="dc" value="no">No
 						</td>
 					</tr>
@@ -461,7 +467,7 @@
 					<tr>
 						<td>District:<font color="red">*</font></td>
 						<td>
-							<select name="PreDis">
+							<select name="PreDis" required>
 								<option value="">-SELECT-</option>
   								<option value="DHAKA">DHAKA</option>
   								<option value="CHITTAGONG">CHITTAGONG</option>
@@ -474,7 +480,7 @@
 					<tr>
 						<td>Police Station:<font color="red">*</font></td>
 						<td>
-							<select name="PrePS">
+							<select name="PrePS" required>
 								<option value="">-SELECT-</option>
   								<option value="DHAKA">DHAKA</option>
   								<option value="CHITTAGONG">CHITTAGONG</option>
@@ -487,7 +493,7 @@
 					<tr>
 						<td>Post Office:<font color="red">*</font></td>
 						<td>
-							<select name="PrePO">
+							<select name="PrePO" required>
 								<option value="">-SELECT-</option>
   								<option value="DHAKA">DHAKA</option>
   								<option value="CHITTAGONG">CHITTAGONG</option>
@@ -520,7 +526,7 @@
 					<tr>
 						<td>District:<font color="red">*</font></td>
 						<td>
-							<select name="PerDis">
+							<select name="PerDis" required>
 								<option value="">-SELECT-</option>
   								<option value="DHAKA">DHAKA</option>
   								<option value="CHITTAGONG">CHITTAGONG</option>
@@ -533,7 +539,7 @@
 					<tr>
 						<td>Police Station:<font color="red">*</font></td>
 						<td>
-							<select name="PerPS">
+							<select name="PerPS" required>
 								<option value="">-SELECT-</option>
   								<option value="DHAKA">DHAKA</option>
   								<option value="CHITTAGONG">CHITTAGONG</option>
@@ -546,7 +552,7 @@
 					<tr>
 						<td>Post Office:<font color="red">*</font></td>
 						<td>
-							<select name="PerPO">
+							<select name="PerPO" required>
 								<option value="">-SELECT-</option>
   								<option value="DHAKA">DHAKA</option>
   								<option value="CHITTAGONG">CHITTAGONG</option>

@@ -240,7 +240,7 @@
 	<script>
 		window.onbeforeunload = function()
 		{
-   			return "Do you really want to leave our brilliant application?";
+   			return " Changes you made may not be saved. ";
 		}
 	</script>
 </body>

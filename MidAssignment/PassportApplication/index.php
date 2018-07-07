@@ -231,7 +231,7 @@
 						<td> </td>
 					</tr>
 					<tr class="SubDiv">
-						<td colspan="2">Guardian <input type="checkbox" id="adapted" name="adapted" value="adapted" onclick="adapt()"> <font color="red"><i>"Tick"</i></font> only if Applicant is legally adapted</td>
+						<td colspan="2">Guardian <input type="checkbox" id="adapted" name="adapted" value="adapted"> <font color="red"><i>"Tick"</i></font> only if Applicant is legally adapted</td>
 					</tr>
 					<tr>
 						<td> </td>
@@ -458,16 +458,16 @@
 					</tr>
 					<tr>
 						<td>Village/House:</td>
-						<td><input type="text" class="TextArea" name="PreHouse" value=""></td>
+						<td><input type="text" class="TextArea" name="PreHouse" id="prehouse" value=""></td>
 					</tr>
 					<tr>
 						<td>Road/Block/Sector:</td>
-						<td><input type="text" class="TextArea" name="PreRoad" value=""></td>
+						<td><input type="text" class="TextArea" name="PreRoad" id="preroad" value=""></td>
 					</tr>
 					<tr>
 						<td>District:<font color="red">*</font></td>
 						<td>
-							<select name="PreDis" required>
+							<select name="PreDis" id="predis" required>
 								<option value="">-SELECT-</option>
   								<option value="DHAKA">DHAKA</option>
   								<option value="CHITTAGONG">CHITTAGONG</option>
@@ -480,7 +480,7 @@
 					<tr>
 						<td>Police Station:<font color="red">*</font></td>
 						<td>
-							<select name="PrePS" required>
+							<select name="PrePS" id="prepolice" required>
 								<option value="">-SELECT-</option>
   								<option value="DHAKA">DHAKA</option>
   								<option value="CHITTAGONG">CHITTAGONG</option>
@@ -493,7 +493,7 @@
 					<tr>
 						<td>Post Office:<font color="red">*</font></td>
 						<td>
-							<select name="PrePO" required>
+							<select name="PrePO" id="prepost" required>
 								<option value="">-SELECT-</option>
   								<option value="DHAKA">DHAKA</option>
   								<option value="CHITTAGONG">CHITTAGONG</option>
@@ -513,20 +513,20 @@
 						<td> </td>
 					</tr>
 					<tr>
-						<td colspan="2"><input type="checkbox" name="Per" value="SameAsPre"> Same as above</td>
+						<td colspan="2"><input type="checkbox" name="Per" id="preper" value="SameAsPre"> Same as above</td>
 					</tr>
 					<tr>
 						<td>Village/House:</td>
-						<td><input type="text" class="TextArea" name="PerHouse" value=""></td>
+						<td><input type="text" class="TextArea" name="PerHouse" id="perhouse" value=""></td>
 					</tr>
 					<tr>
 						<td>Road/Block/Sector:</td>
-						<td><input type="text" class="TextArea" name="PerRoad" value=""></td>
+						<td><input type="text" class="TextArea" name="PerRoad" id="perroad" value=""></td>
 					</tr>
 					<tr>
 						<td>District:<font color="red">*</font></td>
 						<td>
-							<select name="PerDis" required>
+							<select name="PerDis" id="perdis" required>
 								<option value="">-SELECT-</option>
   								<option value="DHAKA">DHAKA</option>
   								<option value="CHITTAGONG">CHITTAGONG</option>
@@ -539,7 +539,7 @@
 					<tr>
 						<td>Police Station:<font color="red">*</font></td>
 						<td>
-							<select name="PerPS" required>
+							<select name="PerPS" id="perpolice" required>
 								<option value="">-SELECT-</option>
   								<option value="DHAKA">DHAKA</option>
   								<option value="CHITTAGONG">CHITTAGONG</option>
@@ -552,7 +552,7 @@
 					<tr>
 						<td>Post Office:<font color="red">*</font></td>
 						<td>
-							<select name="PerPO" required>
+							<select name="PerPO" id="perpost" required>
 								<option value="">-SELECT-</option>
   								<option value="DHAKA">DHAKA</option>
   								<option value="CHITTAGONG">CHITTAGONG</option>
@@ -574,7 +574,6 @@
 	<script>
 
 		var adapted = document.getElementById("adapted");
-		// var mothername = document.getElementById("mothername");
 		adapted.addEventListener("click", function ()
 		{
      		if (adapted.checked)
@@ -590,21 +589,46 @@
         	  	motherprofession.disabled=false;
      		}
 		})
-		// mothername.addEventListener("focus", function (evt)
-		// {
-  //    		if (adapted.checked)
-  //    		{
-  //         		this.readOnly = true;
-  //    		}
-  //    		else
-  //    		{
-  //         		this.readOnly = false;
-  //    		}
-		// })
+
+		var preper = document.getElementById("preper");
+		var house = document.getElementById("prehouse");
+		var road = document.getElementById("preroad");
+		var district = document.getElementById("predis");
+		var police = document.getElementById("prepolice");
+		var post = document.getElementById("prepost");
+		preper.addEventListener("click", function()
+		{
+     		if (preper.checked)
+     		{
+          		document.getElementById("perhouse").value = house.value;
+          		document.getElementById("perroad").value = road.value;
+          		document.getElementById("perdis").value = district.value;
+          		document.getElementById("perpolice").value = police.value;
+          		document.getElementById("perpost").value = post.value;
+          		perhouse.readOnly=true;
+          		perroad.readOnly=true;
+          		perdis.disabled=true;
+          		perpolice.disabled=true;
+          		perpost.disabled=true;
+    	 	}
+    	 	else
+    	 	{
+    	 		document.getElementById("perhouse").value = "";
+          		document.getElementById("perroad").value = "";
+          		document.getElementById("perdis").value = "";
+          		document.getElementById("perpolice").value = "";
+          		document.getElementById("perpost").value = "";
+    	 		perhouse.readOnly=false;
+          		perroad.readOnly=false;
+          		perdis.disabled=false;
+          		perpolice.disabled=false;
+          		perpost.disabled=false;
+     		}
+		})
 
 		window.onbeforeunload = function()
 		{
-   			return "Do you really want to leave our brilliant application?";
+   			return " Changes you made may not be saved. ";
 		}
 	</script>
 </body>

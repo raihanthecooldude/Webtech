@@ -324,5 +324,12 @@
 			</div>
 		</fieldset>
 	</form>
+
+	<script>
+		window.onbeforeunload = function()
+		{
+   			return "Do you really want to leave our brilliant application?";
+		}
+	</script>
 </body>
 </html>

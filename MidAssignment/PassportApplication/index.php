@@ -231,7 +231,7 @@
 						<td> </td>
 					</tr>
 					<tr class="SubDiv">
-						<td colspan="2">Guardian <input type="checkbox" name="adapted" value="adapted"> <font color="red"><i>"Tick"</i></font> only if Applicant is legally adapted</td>
+						<td colspan="2">Guardian <input type="checkbox" id="adapted" name="adapted" value="adapted" onclick="adapt()"> <font color="red"><i>"Tick"</i></font> only if Applicant is legally adapted</td>
 					</tr>
 					<tr>
 						<td> </td>
@@ -264,12 +264,12 @@
 					</tr>
 					<tr>
 						<td>Mother's Name:<font color="red">*</font></td>
-						<td><input type="text" class="TextArea" pattern="^([a-zA-Z]+)((' |[ ]|[-])([a-zA-Z]*))*$" oninvalid="this.setCustomValidity('Please Enter your Name using only Characters')" oninput="setCustomValidity('')" name="MotherName" value="" required></td>
+						<td><input type="text" class="TextArea" pattern="^([a-zA-Z]+)((' |[ ]|[-])([a-zA-Z]*))*$" oninvalid="this.setCustomValidity('Please Enter your Name using only Characters')" oninput="setCustomValidity('')" name="MotherName" id="mothername" value="" required></td>
 					</tr>
 					<tr>
 						<td>Mother's<br>Nationality:<font color="red">*</font></td>
 						<td>
-							<select name="MN" required>
+							<select name="MN" required id="mothernationality">
   								<option value="BANGLADESHI">BANGLADESHI</option>
  								<option value="FRENCH">FRENCH</option>
   								<option value="ITALIAN">ITALIAN</option>
@@ -281,7 +281,7 @@
 					<tr>
 						<td>Mother's<br>Profession:<font color="red">*</font></td>
 						<td>
-							<select name="MPro" required>
+							<select name="MPro" required id="motherprofession">
   								<option value="">-SELECT-</option>
  								<option value="HOUSEWIFE">HOUSEWIFE</option>
  								<option value="CSENGINEER">CS ENGINEER</option>
@@ -569,5 +569,43 @@
 		</div>
 		</fieldset>
 	</form>
+
+
+	<script>
+
+		var adapted = document.getElementById("adapted");
+		// var mothername = document.getElementById("mothername");
+		adapted.addEventListener("click", function ()
+		{
+     		if (adapted.checked)
+     		{
+          		mothername.readOnly = true;
+          		mothernationality.disabled=true;
+          		motherprofession.disabled=true;
+    	 	}
+    	 	else
+    	 	{
+        	  	mothername.readOnly = false;
+          		mothernationality.disabled=false;
+        	  	motherprofession.disabled=false;
+     		}
+		})
+		// mothername.addEventListener("focus", function (evt)
+		// {
+  //    		if (adapted.checked)
+  //    		{
+  //         		this.readOnly = true;
+  //    		}
+  //    		else
+  //    		{
+  //         		this.readOnly = false;
+  //    		}
+		// })
+
+		window.onbeforeunload = function()
+		{
+   			return "Do you really want to leave our brilliant application?";
+		}
+	</script>
 </body>
 </html>

@@ -141,7 +141,8 @@
 		.Save
 		{
 			float: right;
-			padding: 10px 24px;
+			padding-right: 12px;
+			padding-left: 12px;
 			font-family: Calibri;
 		}
 
@@ -155,6 +156,10 @@
 </head>
 <body>
 	<form name="stage1" method="post" action="stage2.php">
+<?php
+	session_start();
+?>
+
 		<div class="Top">
 			<h3> PASSPORT APPLICATION - STAGE 1</h3>
 			<p id="RedMark"> Before filling up the online application form read the <a href="#">guidelines</a> carefully.</p>
@@ -191,7 +196,7 @@
 					<tr>
 						<td>Passport Type:<font color="red">*</font></td>
 						<td>
-							<select name="PassType" required>
+							<select name="PassType" required >
   								<option value="">-SELECT-</option>
  								<option value="ORDINARY">ORDINARY</option>
   								<option value="DIPLOMATICY">DIPLOMATIC</option>
@@ -221,7 +226,7 @@
 					</tr>
 					<tr>
 						<td>First Part<br>(Given Name):</td>
-						<td><input type="text" class="TextArea" name="FirstName" value="" pattern="^([a-zA-Z]+)((' |[ ]|[-])([a-zA-Z]*))*$" oninvalid="this.setCustomValidity('Please Enter your Name using only Characters')" oninput="setCustomValidity('')" value=""></td>
+						<td><input type="text" class="TextArea" name="FirstName" value="<?php echo isset($_SESSION['FirstName']) ? $_SESSION['FirstName'] : ''; ?>" pattern="^([a-zA-Z]+)((' |[ ]|[-])([a-zA-Z]*))*$" oninvalid="this.setCustomValidity('Please Enter your Name using only Characters')" oninput="setCustomValidity('')" value=""></td>
 					</tr>
 					<tr>
 						<td>Second Part<br>(Surname)<font color="red">*</font></td>
@@ -626,10 +631,13 @@
      		}
 		})
 
-		window.onbeforeunload = function()
-		{
-   			return " Changes you made may not be saved. ";
-		}
+		// window.onbeforeunload = function()
+		// {
+  //  			return " Changes you made may not be saved. ";
+		// }
+
+		Recaptcha.reload();
+
 	</script>
 </body>
 </html>

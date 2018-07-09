@@ -141,8 +141,10 @@
 		.Save
 		{
 			float: right;
-			padding: 10px 24px;
+			padding-right: 12px;
+			padding-left: 12px;
 			font-family: Calibri;
+			margin-right: 10px;
 		}
 
 		input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button, input[type=date]::-webkit-inner-spin-button, input[type=date]::-webkit-outer-spin-button
@@ -155,11 +157,32 @@
 </head>
 <body>
 	<form name="stage2" method="post" action="stage3.php">
+<?php
+	session_start();
+
+	$_SESSION['ApplicantName']=$_POST['ApplicantName'];
+	$_SESSION['FirstName']=$_POST['FirstName'];
+	$_SESSION['LastName']=$_POST['LastName'];
+	$_SESSION['Gender']=$_POST['Gender'];
+	$_SESSION['AN']=$_POST['AN'];
+	$_SESSION['dateofbirth']=$_POST['dateofbirth'];
+	$_SESSION['BDCountry']=$_POST['BDis'].", ".$_POST['Country'];
+	$_SESSION['FatherName']=$_POST['FatherName'];
+	$_SESSION['MotherName']=$_POST['MotherName'];
+	$_SESSION['SpouserName']=$_POST['SpouserName'];
+	$_SESSION['NID']=$_POST['NID'];
+	$_SESSION['BID']=$_POST['BID'];
+	$_SESSION['Apply']=$_POST['Apply'];
+	$_SESSION['PassType']=$_POST['PassType'];
+	$_SESSION['presentadd']=$_POST['PreHouse']." ".$_POST['PreRoad']." ".$_POST['PreDis']." ".$_POST['PrePS']." ".$_POST['PrePO'];
+	$_SESSION['permamanetadd']=$_POST['PerHouse']." ".$_POST['PerRoad']." ".$_POST['PerDis']." ".$_POST['PerPS']." ".$_POST['PerPO'];
+	$_SESSION['email']=$_POST['Email'];
+?>
 		<div class="Top">
 			<h3> PASSPORT APPLICATION - STAGE 2</h3>
 <?php
-	$oaid=rand(10, 100000000);
-	echo "<b>Online Application ID: &nbsp&nbsp&nbsp ".$oaid."</b><br>";
+	$_SESSION['oaid']=rand(10, 100000000);
+	echo "<b>Online Application ID: &nbsp&nbsp&nbsp ".$_SESSION['oaid']."</b><br>";
 ?>
 			<p id="Normal"> Fields marked with <i><b><font color="red">(*)</font></b></i> are mandatory.</p>
 		</div>
@@ -319,17 +342,17 @@
 						</tr>
 					</table>
 					<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-				<button class="Save">SAVE & NEXT</button>
+					</button><button class="Save">SAVE & NEXT</button> <button class="Save"><a href="index.php">BACK</a></button>
 				</div>
 			</div>
 		</fieldset>
 	</form>
 
 	<script>
-		window.onbeforeunload = function()
-		{
-   			return " Changes you made may not be saved. ";
-		}
+		// window.onbeforeunload = function()
+		// {
+  //  			return " Changes you made may not be saved. ";
+		// }
 	</script>
 </body>
 </html>

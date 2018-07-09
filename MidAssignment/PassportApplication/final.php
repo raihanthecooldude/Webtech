@@ -155,7 +155,7 @@
 
 	</style>
 <body>
-	<form name="eview" method="post" action="store.php">
+	<form name="eview" method="post" action="final.php">
 		<div class="Top">
 			<h3> PASSPORT APPLICATION - Review Enrolment Summary</h3>
 <?php
@@ -171,10 +171,7 @@
 ?>
 		
 		<p id="Normal"></p>
-		<i><b><font color="red">Reminder before submitting your application</font></b></i><br>
-		<ul>
-			<li><i>After you click submit, you are not allowed to modify your information.</i></li>
-		</ul>
+		<i><b><font color="red">Your application have been saved</font></b></i><br>
 		</div>
 		<br>
 		<hr class="x">
@@ -317,8 +314,6 @@
 							<td> </td>
 						</tr>
 					</table>
-					<br><br><br><br>
-				<button class="Save">SAVE</button>
 				</div>
 			</div>
 		</fieldset>
@@ -331,5 +326,9 @@
 		d = n.getDate();
 		document.getElementById("Normal").innerHTML = "Enrolment Date: " + m + "/" + d + "/" + y;
 	</script>
+
+<?php
+	session_destroy();
+?>
 </body>
 </html>

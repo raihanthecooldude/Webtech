@@ -4,7 +4,10 @@
 		<title>Login</title>
 	</head>
 	<body>
-		<form name="Login" action="login-handler.php" method="post" >
+		<?php
+			session_start();
+		?>
+		<form name="Login" action="LoginHandler.php" method="post" >
 			<table>
 				<tr>
 				<td><b>Username</td>

@@ -141,7 +141,8 @@
 		.Save
 		{
 			float: right;
-			padding: 10px 24px;
+			padding-right: 12px;
+			padding-left: 12px;
 			font-family: Calibri;
 		}
 
@@ -156,10 +157,13 @@
 <body>
 	<form name="stage3" method="post" action="review.php">
 		<div class="Top">
-			<h3> PASSPORT APPLICATION - STAGE 2</h3>
+			<h3> PASSPORT APPLICATION - STAGE 3</h3>
 <?php
-	$oaid=rand(10, 100000000);
-	echo "<b>Online Application ID: &nbsp&nbsp&nbsp ".$oaid."</b><br>";
+	session_start();
+	
+	$_SESSION['mno']=$_POST['mno'];
+
+	echo "<b>Online Application ID: &nbsp&nbsp&nbsp ".$_SESSION['oaid']."</b><br>";
 ?>
 			<p id="Normal"> Fields marked with <i><b><font color="red">(*)</font></b></i> are mandatory.</p>
 		</div>
@@ -238,10 +242,10 @@
 	</form>
 
 	<script>
-		window.onbeforeunload = function()
-		{
-   			return " Changes you made may not be saved. ";
-		}
+		// window.onbeforeunload = function()
+		// {
+  //  			return " Changes you made may not be saved. ";
+		// }
 	</script>
 </body>
 </html>

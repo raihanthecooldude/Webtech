@@ -4,7 +4,7 @@
 	<title>Read File</title>
 </head>
 <body>
-	<h2>Hello</h2>
+	<h2>Read The Files</h2>
 	<hr>
 
 <?php

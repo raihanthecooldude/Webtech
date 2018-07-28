@@ -28,9 +28,10 @@
 
 		.top
 		{
-			text-align: left;
+			/*text-align: center;*/
 			font-family: Calibri;
-			padding-left: 25%;
+			/*padding-left: 25%;*/
+      /*border: 1px solid red;*/
 		}
 
 		.middle
@@ -68,6 +69,17 @@
 			color: black;
 		}
 
+    #point
+    {
+      padding-left: 25%;
+      /*text-align: center;*/
+    }
+
+    #status
+    {
+      text-align: center;
+    }
+
 	</style>
 </head>
 
@@ -77,7 +89,8 @@
 			<div class="top">
 				<br>
 				<br>
-				<h2 id="point"> Point: 0 </h2>
+				<h2 id="point"> Point: 0 </h2><br>
+        <h3 id="status"> Start the game by clicking the Roll button </h3>
 				<br>
 				<br>
 				<br>
@@ -123,11 +136,12 @@
 
 	function play()
 	{
+    document.getElementById("status").innerHTML = " ";
    		if ( firstRoll )
    		{
       		// first roll of the dice
       		sumOfDice = rollDice();
-      		show();
+      		show(sumOfDice);
    		}
    		else
    		{
@@ -141,10 +155,11 @@
    			// window.alert ("Roll again");
    			myPoint = sumOfDice;
    			document.getElementById("point").innerHTML = "Point: "+ myPoint;
+        document.getElementById("status").innerHTML = "Roll Again";
    		}
    		else
    		{
-      		result();
+      		result(sumOfDice);
   		}
   	}
 
@@ -190,7 +205,7 @@
                 break;
         }
         
-		die2 = Math.floor( 1 + Math.random() * 6 );
+		    die2 = Math.floor( 1 + Math.random() * 6 );
         switch (die2)
         {
             case 1:
@@ -222,11 +237,11 @@
    		// document.craps.secondDie.value = die2;
    		// document.craps.sum.value = workSum;
    		return workSum;
-    }
+  }
 
-    function show()
+    function show(sumOfDice)
     {
-		switch ( sumOfDice )
+		  switch ( sumOfDice )
       	{
          	case 7: case 11:  
            	// win on first roll
@@ -250,23 +265,25 @@
          }
     }
 
-    function result()
+    function result(sumOfDice)
     {
     	if ( gameStatus == WON )
       	{
-         	window.alert ("Player wins. " + "Click Roll Dice to play again."); 
          	// document.craps.point.value = " ";
          	document.getElementById("point").innerHTML = "Point: 0";
          	document.getElementById("dice1").src = "Photos/blank1.png";
          	document.getElementById("dice2").src = "Photos/blank2.png";
+          window.alert ("Point: " + sumOfDice + "\n" + "You win. " + "Click Roll Dice to play again."); 
+          document.getElementById("status").innerHTML = "Start the game by clicking the Roll button";
       	}
       	else
       	{
-         	window.alert ("Player loses. " + "Click Roll Dice to play again.");
          	// document.craps.point.value = " ";
          	document.getElementById("point").innerHTML = "Point: 0";
          	document.getElementById("dice1").src = "Photos/blank1.png";
          	document.getElementById("dice2").src = "Photos/blank2.png";
+          window.alert ("Point: " + sumOfDice + "\n" + "You lose. " + "Click Roll Dice to play again.");
+          document.getElementById("status").innerHTML = "Start the game by clicking the Roll button";
       	}
       	
   		firstRoll = true;

@@ -1,0 +1,95 @@
+<html>
+	<head>
+		<link rel="icon" href="img/favicon.ico" type="image/ico" sizes="16x16">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+	    <link href="css/bootstrap.css" rel="stylesheet">
+	    <script src="js/jquery.js"></script>
+	    <script src="js/bootstrap.js"></script>
+	    <script src="js/bootstrap.min.js"></script>
+		<script language="Javascript">
+
+            function postRequest(strURL)
+            {
+                var xmlHttp;
+                if (window.XMLHttpRequest) // Mozilla, Safari, ...
+                {
+                    var xmlHttp = new XMLHttpRequest();
+                    console.log("normal");
+                }
+                else if (window.ActiveXObject) // IE
+                {
+                    var xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+                    console.log("MS");
+                }
+                else
+                {
+                    alert("your browser does not support AJAX");
+                    return;
+                }
+                xmlHttp.open('POST', strURL, true);
+                xmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xmlHttp.onreadystatechange = function()
+                {
+
+                    if (xmlHttp.readyState == 4)
+                    {
+                        updatepage(xmlHttp.responseText);
+                    }
+                }
+                xmlHttp.send(strURL);
+            }
+            function updatepage(str)
+            {
+                document.getElementById("msg").innerHTML = str;
+            }
+            function show()
+            {
+                var div=document.getElementById("msg");
+                console.log('result got');
+                div.innerHTML = '<img src="img/loader.gif" />';
+                console.log('loader got');
+                var email=document.getElementById("email");
+                var emailvalue=email.value;
+                var url="emailcheck.php?emailvalue="+emailvalue;
+                postRequest(url);
+                console.log('request sent');
+
+            }
+		</script>
+
+	</head>
+	<body>
+		<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.php">News Site</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="home.php">Insert Data</a></li>
+            <li><a href="viewdata.php">View data</a></li>
+            <li><a href="listdata.php">List Data</a></li>
+            <li><a href="loginv.html">Login</a></li>
+            <li class="active"><a href="regv.html">Register</a></li>
+            
+        </ul>
+    </div>
+</nav>
+
+		<div class="container">
+
+			<h2> User Registration Page</h2><hr>
+			<div class="form-group">
+				<form method="post" action="regm.php" name="reg">
+					<label for="username">User Name</label>
+					<input type="text" name="un" class="form-control" /> <br/>
+					<label for="password">Password</label>
+					<input type="password" name="pw" class="form-control" /><br/>
+					<label for="email">E-mail</label>
+					<input type="email" name="email" class="form-control" id="email"/><br/>
+					<input type="button" name="checkemail" class="btn btn-info" onclick="JavaScript:show()" value="Check Email"/>
+					<input type="submit" name="submit" value="submit" class="btn btn-success" />
+				</form>
+			</div>
+			<div id="msg"></div>
+		</div>
+	</body>

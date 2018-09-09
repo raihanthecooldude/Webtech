@@ -1,0 +1,113 @@
+.player
+{
+	/*border: 2px solid black;*/
+	float: left;
+	width: 48%;
+}
+
+.button
+{
+	/*border: 2px solid red;*/
+	float: right;
+	width: 50%;
+}
+
+.files
+{
+	height: 400px;
+	width: 80%;
+}
+
+.upload
+{
+	background-color: #4caf50;
+	border-radius: 4px;
+	border: 1px solid #009933;
+	padding: 10px 14px;
+
+	color: white;
+	font-family: Calibri;
+	font-size: 16px;
+
+	transition-duration: 0.4s;
+}
+
+.upload:hover
+{
+	background-color: white;
+	border: 2px solid #4caf50;
+
+	color: black;
+}
+
+.reset
+{
+	background-color: red;
+	border-radius: 4px;
+	border: 1px solid red;
+	padding: 10px 16px;
+
+	color: white;
+	font-family: Calibri;
+	font-size: 16px;
+
+	transition-duration: 0.4s;
+}
+
+.reset:hover
+{
+	background-color: white;
+	border: 2px solid red;
+
+	color: black;
+}
+
+.play
+{
+	background-color: #0066ff;
+	border-radius: 4px;
+	border: 1px solid blue;
+	padding: 10px 16px;
+
+	color: white;
+	font-family: Calibri;
+	font-size: 16px;
+
+	transition-duration: 0.4s;
+}
+
+.play:hover
+{
+	background-color: white;
+	border: 2px solid #0066ff;
+
+	color: black;
+}
+
+.video-player
+{
+	margin: 0 auto;
+	width: 500px;
+}
+
+.file-table
+{
+	font-family: Calibri;
+	border-collapse: collapse;
+}
+
+.file-table
+{
+	border: 0px;
+	padding: 5px 200px;
+}
+
+.file-table tr:nth-child(even)
+{
+	background-color: #f2f2f2;
+}	
+
+.file-table tr:hover
+{
+	background-color: #ddd;
+}

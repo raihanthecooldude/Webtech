@@ -1,41 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-	
-	<title>Video</title>
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="style.css">
-
+	<title>Video-Stream</title>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
-<body>
-
-	<div class="player">
-		<video class="video-player" id="video-player" width="500" controls>
-			<source src="#" type="video/mp4">
-		</video>
-	</div>
-	<div class="button">
-		<form>
-			<!-- <input type="text" name="files" class="files" readonly> -->
-
-			<table>
-				<tr>
-					<span id="hello"></span>
-				</tr>
-			</table>
-			<br><br><br>
-			<input type="file" name="video" accept="video/*" onchange="loadFile(event)"><br><br>
-			<button class="upload">Upload</button> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <button type="reset" name="reset" class="reset">Reset</button> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <button class="play">Play</button>
-		</form>
-	</div>
-
+<body >
+	<video id="myVideo" width="500px" controls autoplay>
+    	<source src="video1.mp4" id="mp4Source" type="video/mp4">
+   	</video>
 </body>
-<script>
-  	var loadFile = function(event)
-  	{
-    	var output = document.getElementById('video-player');
-    	output.src = URL.createObjectURL(event.target.files[0]);
-	}
+<script type='text/javascript'>
+   var count=1;
+   var player=document.getElementById('myVideo');
+   var mp4Vid = document.getElementById('mp4Source');
+   player.addEventListener('ended',myHandler,false);
+
+   function myHandler(e)
+   {
+
+      if(!e) 
+      {
+         e = window.event; 
+      }
+      count++;
+      if(count > 6)
+      {
+         count = 1;
+      }
+      // document.getElementById("mp4Source").attr("src","video".count.".mp4");
+      // console.log(count);
+      // console.log(mp4Vid);
+      $(mp4Vid).attr('src', "video"+count+".mp4");
+      //console.log();
+      // mp4Vid.src="video".count.".mp4";
+      player.load();
+      player.play();
+   }
+
 </script>
 </html>

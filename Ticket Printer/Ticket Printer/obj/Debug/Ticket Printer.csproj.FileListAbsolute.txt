@@ -1,0 +1,25 @@
+F:\I am Groot\Ticket Printer\Ticket Printer\bin\Debug\Ticket Printer.exe.config
+F:\I am Groot\Ticket Printer\Ticket Printer\bin\Debug\Ticket Printer.exe
+F:\I am Groot\Ticket Printer\Ticket Printer\bin\Debug\Ticket Printer.pdb
+F:\I am Groot\Ticket Printer\Ticket Printer\obj\Debug\Ticket Printer.csprojResolveAssemblyReference.cache
+F:\I am Groot\Ticket Printer\Ticket Printer\obj\Debug\Ticket_Printer.TicketPrinter.resources
+F:\I am Groot\Ticket Printer\Ticket Printer\obj\Debug\Ticket_Printer.Properties.Resources.resources
+F:\I am Groot\Ticket Printer\Ticket Printer\obj\Debug\Ticket Printer.csproj.GenerateResource.Cache
+F:\I am Groot\Ticket Printer\Ticket Printer\obj\Debug\Ticket Printer.exe
+F:\I am Groot\Ticket Printer\Ticket Printer\obj\Debug\Ticket Printer.pdb
+F:\I am Groot\Projects\Ticket Printer\Ticket Printer\bin\Debug\Ticket Printer.exe.config
+F:\I am Groot\Projects\Ticket Printer\Ticket Printer\obj\Debug\Ticket Printer.exe
+F:\I am Groot\Projects\Ticket Printer\Ticket Printer\obj\Debug\Ticket Printer.pdb
+F:\I am Groot\C#\Projects\Ticket Printer\Ticket Printer\bin\Debug\Ticket Printer.exe.config
+F:\I am Groot\C#\Projects\Ticket Printer\Ticket Printer\obj\Debug\Ticket Printer.exe
+F:\I am Groot\C#\Projects\Ticket Printer\Ticket Printer\obj\Debug\Ticket Printer.pdb
+F:\I am Groot\C#\Projects\Ticket Printer\Ticket Printer\obj\Debug\Ticket Printer.csprojResolveAssemblyReference.cache
+F:\I am Groot\C#\Projects\Ticket Printer\Ticket Printer\obj\Debug\Ticket_Printer.TicketPrinter.resources
+F:\I am Groot\C#\Projects\Ticket Printer\Ticket Printer\obj\Debug\Ticket_Printer.Properties.Resources.resources
+F:\I am Groot\C#\Projects\Ticket Printer\Ticket Printer\obj\Debug\Ticket Printer.csproj.GenerateResource.Cache
+F:\I am Groot\C#\Projects\Ticket Printer\Ticket Printer\bin\Debug\Ticket Printer.exe
+F:\I am Groot\C#\Projects\Ticket Printer\Ticket Printer\bin\Debug\Ticket Printer.pdb
+F:\I am Groot\C#\Projects\Ticket Printer\Ticket Printer\bin\Debug\itextsharp.dll
+F:\I am Groot\C#\Projects\Ticket Printer\Ticket Printer\bin\Debug\itextsharp.pdfa.dll
+F:\I am Groot\C#\Projects\Ticket Printer\Ticket Printer\bin\Debug\itextsharp.xtra.dll
+F:\I am Groot\C#\Projects\Ticket Printer\Ticket Printer\bin\Debug\itextsharp.xml

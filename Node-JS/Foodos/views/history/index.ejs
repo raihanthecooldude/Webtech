@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+</head>
+<body>
+
+<table border="1">
+    <tr>
+        <!--<th>Time</th>-->
+        <th>Food Name</th>
+        <th>Area</th>
+        <th>Price Range</th>
+    </tr>
+    <% for(var i = 0; i < historylist.length; i++){ %>
+
+    <tr>
+        <td><%= historylist[i].food_name %></td>
+        <td><%= historylist[i].area %></td>
+        <td><%= historylist[i].price %></td>
+    </tr>
+
+    <% } %>
+
+</table>
+</body>
+</html>

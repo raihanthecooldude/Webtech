@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User List</title>
+</head>
+<body>
+	
+	<table border="1">
+		<tr>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Type</th>
+			<th align="center">ACTION</th>
+		</tr>
+		<% for(var i = 0; i < userList.length; i++){ %>
+
+		<tr>
+			<td><%= userList[i].name %></td>
+			<td><%= userList[i].email %></td>
+			<td><%= userList[i].type %></td>
+			<td><a href="/home/emp-edit/<%= userList[i].uid %>">Edit</a> | <a href="/home/emp-delete/<%= userList[i].uid %>"> Delete</a> </td>
+		</tr>
+		
+		<% } %>
+
+	</table>
+</body>
+</html>
